@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+.container{
+    width: 80%;
+    max-width: 1100px;
+    margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.container .hospital-table{
+
+    margin: 20px auto;
+    border-collapse: collapse;
+    
+    border-style: hidden; /* hide standard table (collapsed) border */
+    overflow: auto;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container .hospital-table th, td{
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container .hospital-table th{
+    background-color: #eeeeee;
 }
 
-.App-link {
-  color: #61dafb;
+.modal{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal .modal__container{
+    width: 500px;
+    max-width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.modal .modal__container .header{
+    font-weight: bold;
+    padding: 1rem;   
+    border-bottom:1px solid #ccc;
+}
+
+.modal .modal__container .form{
+    padding: 1rem;
+}
+
+.modal .modal__container .form .form-buttons{
+    text-align: right;
+}
+
+.msg{
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: .5rem;
+    width: 100%;
+    margin: 1rem;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.3);
+    font-weight: bold;
+}
+
+.msg.msg--success{
+    border: 2px solid rgb(169,192,166);
+    background-color: rgba(169,192,166, .6);
+}
+
+@media screen and (max-width:576px){
+    .modal .modal__container{
+        max-width: 80%;
+    }
 }
